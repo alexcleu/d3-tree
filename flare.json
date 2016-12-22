@@ -1,12 +1,20 @@
 {
  "name": "playtest",
+ "health_status":0,
+ "type": "advertisable",
+ "eid": "URD3FYB7TJDRTKIGMNPOXV",
  "children": [
   {
    "name": "playing",
-   "eids": "abcdefg",
+   "eid": "3MQ2QPGS45BONJHNKHKEAS",
+   "health_status": 0,
+   "type": "campaign",
    "children": [
     {
      "name": "playgroup1",
+     "heath_status": 0,
+     "eids": "576WJY4BXZCTNNKAYB2GKD",
+     "type": "adgroup",
      "children": [
       {"name": "play_segnt", "size": 3938},
       {"name": "play_creatives", "size": 3812}
@@ -32,6 +40,8 @@
   },
   {
    "name": "campaign2",
+   "eids": "dlfjaslfjalsfj",
+   "health_status": 1,
    "children": [
     {"name": "Easing", "size": 17010},
     {"name": "FunctionSequence", "size": 5842},
@@ -62,6 +72,8 @@
   },
   {
    "name": "data",
+   "eids": "bbbb",
+   "health_status":0,
    "children": [
     {
      "name": "converters",
