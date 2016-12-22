@@ -109,7 +109,17 @@ function update(source) {
 
   nodeEnter
       .append("a")
-      .attr("xlink:href", function (d) { return "https://app.adroll.com/backstage/inspect/advertisable?advertisable_path_name=" + d.eids;})
+      .attr("xlink:href", function (d) {if(d.type == "advertisable") 
+                                         {return "https://app.adroll.com/backstage/inspect/advertisable?advertisable_path_name=" + d.eids;}
+                                       else if(d.type == "campaign")
+ 										 {return "https://app.adroll.com/backstage/inspect/campaign/" + d.eids;}
+									   else if (d.type == "adgroup") {
+    									  var cmp_eid = d.parent.eids
+ 										return "https://app.adroll.com/backstage/inspect/adgroup/" + cmp_eid +"?adgroup_eid=" + d.eids;}
+                                       else if (d.type == "ad") {
+                                          var cmp_eid = d.parent.parent.eids
+                                        return "https://app.adroll.com/backstage/inspect/ad/" + cmp_eid + "?ad_eid=" + d.eids;}
+									   })
       .append("rect")
           .attr("class", "clickable")
           .attr("y", -6)
