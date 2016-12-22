@@ -1,19 +1,19 @@
 {
- "name": "advertisables",
+ "name": "play",
  "children": [
   {
-   "name": "campaign1",
+   "name": "playing",
    "eids": "abcdefg",
    "children": [
     {
-     "name": "adgroup1",
+     "name": "playgroup1",
      "children": [
-      {"name": "ad_segment", "size": 3938},
-      {"name": "ad_creatives", "size": 3812}
+      {"name": "play_segnt", "size": 3938},
+      {"name": "play_creatives", "size": 3812}
      ]
     },
     {
-     "name": "adgroup2",
+     "name": "playgroup2",
      "children": [
       {"name": "BetweennessCentrality", "size": 3534},
       {"name": "LinkDistance", "size": 5731},
