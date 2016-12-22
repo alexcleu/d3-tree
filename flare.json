@@ -3,6 +3,7 @@
  "children": [
   {
    "name": "campaign1",
+   "eids": "abcdefg",
    "children": [
     {
      "name": "adgroup1",

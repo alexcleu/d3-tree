@@ -85,11 +85,13 @@ function update(source) {
   var nodeEnter = node.enter().append("g")
       .attr("class", "node")
       .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-      .on("click", click);
+      ;
 
   nodeEnter.append("circle")
       .attr("r", 1e-6)
-      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; })
+      .on("click", click)      
+      ;
 
   nodeEnter.append("text")
       .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
@@ -98,6 +100,18 @@ function update(source) {
       .text(function(d) { return d.name; })
       .style("fill-opacity", 1e-6);
 
+  nodeEnter
+      .append("a")
+         .attr("xlink:href", function (d) { return "http://www.google.com/#q=" + d.eids; })
+      .append("rect")
+          .attr("class", "clickable")
+          .attr("y", -6)
+          .attr("x", function (d) { return d.children || d._children ? -60 : 10; })
+          .attr("width", 50) //2*4.5)
+          .attr("height", 12)
+          .style("fill", "white")
+          .style("fill-opacity", .3)        // set to 1e-6 to hide          
+          ;
   // Transition nodes to their new position.
   var nodeUpdate = node.transition()
       .duration(duration)
