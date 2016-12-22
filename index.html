@@ -7,9 +7,9 @@
 }
 
 .node circle {
-  fill: #fff;
-  stroke: steelblue;
-  stroke-width: 1.5px;
+  fill: black;
+  stroke: green;
+  stroke-width: 10px;
 }
 
 .node text {
@@ -89,7 +89,14 @@ function update(source) {
 
   nodeEnter.append("circle")
       .attr("r", 1e-6)
-      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; })
+      .style("fill", "black")
+      .style("stroke", function(d) { if (d.health_status == 0)
+                                       {return "red"}
+									 else if (d.health_status == 1)
+   									  {return "green"} 
+                                     else{
+                                        return "grey"}
+                                   })
       .on("click", click)      
       ;
 
@@ -102,7 +109,7 @@ function update(source) {
 
   nodeEnter
       .append("a")
-         .attr("xlink:href", function (d) { return "http://www.google.com/#q=" + d.eids; })
+      .attr("xlink:href", function (d) { return "http://www.google.com/#q=" + d.eids; })
       .append("rect")
           .attr("class", "clickable")
           .attr("y", -6)
